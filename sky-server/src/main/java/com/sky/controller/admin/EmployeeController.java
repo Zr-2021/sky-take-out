@@ -108,7 +108,7 @@ public class EmployeeController {
      * @param id
      * @return
      */
-    @GetMapping("/status/{status}")
+    @PostMapping("/status/{status}")
     @ApiOperation(value = "启用禁用员工账号")
     public Result<Object> startOrStop(@PathVariable Integer status,Long id) {
         log.info("启用禁用员工账号：{}", id);
