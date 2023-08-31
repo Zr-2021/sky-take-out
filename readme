@@ -1,10 +1,10 @@
 # 练手项目-苍穹外卖
 ## 1、安装nginx
 ```
-docker pull nginx:1.20.2
-docker run --name nginx -v /root/zr/nginx:/usr/share/nginx/html:ro -p 8880:80 -d nginx@1.20.2
+docker pull nginx
+docker run --name nginx -v /root/zr/nginx:/usr/share/nginx/html:ro -p 8880:80 -d nginx
 ```
-## 安装Mysql
+## 2、安装Mysql
 ```
 pull mysql:8.0.12
 
@@ -17,4 +17,12 @@ docker run -d --restart=always --name mysql \
 mysql:8.0.12 \
 --character-set-server=utf8mb4 \
 --collation-server=utf8mb4_general_ci
+```
+
+## 3、阿里云OSS图片服务器改为本地存储
+简单实现，不需要开服务器，仅限个人开发环境使用（**静态资源不可直接访问，最好是搭一个图片服务器**）
+```Java
+//在resources下新建static/images供文件存放
+//在WebMvcConfiguration资源映射的地方添加
+//registry.addResourceHandler("/static/images/**").addResourceLocations("classpath:/static/images/");
 ```

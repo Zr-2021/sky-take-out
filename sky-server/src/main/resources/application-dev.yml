@@ -6,3 +6,8 @@ sky:
     database: sky_take_out
     username: root
     password: scutp2p
+  redis:
+    host: 222.201.144.228
+    port: 6379
+    password: scutp2p
+    database: 15
