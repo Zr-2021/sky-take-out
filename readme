@@ -26,3 +26,10 @@ mysql:8.0.12 \
 //在WebMvcConfiguration资源映射的地方添加
 //registry.addResourceHandler("/static/images/**").addResourceLocations("classpath:/static/images/");
 ```
+
+## 4、本地存储图片不能够回显，需要重启服务器图片才能生效
+这里使用minio开源图片服务器，具体实现见代码
+
+## 5、小程序
+wxd9f87be92210c8db
+1eeb3a10988f36183ed5de0539ffd5d6

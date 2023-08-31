@@ -11,3 +11,6 @@ sky:
     port: 6379
     password: scutp2p
     database: 15
+  wechat:
+    appid: wxd9f87be92210c8db
+    secret: 1eeb3a10988f36183ed5de0539ffd5d6
