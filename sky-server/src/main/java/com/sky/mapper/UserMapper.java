@@ -25,6 +25,6 @@ public interface UserMapper {
      */
     void insert(User user);
 
-    @Select("select * from user where id=#{userId}")
+    @Select("select * from user where id=#{id}")
     User getById(Long userId);
 }
