@@ -43,7 +43,7 @@ public class DishController {
     public Result<Object> save(@RequestBody DishDTO dishDTO) {
         dishService.saveWithFlavor(dishDTO);
         //删除redis中的缓存
-        String key = "dish_" + dishDTO.getCategoryId();
+        String key = "*dish_" + dishDTO.getCategoryId();
         redisTemplate.delete(key);
         return Result.success();
     }
@@ -72,7 +72,7 @@ public class DishController {
     public Result<Object> delete(@RequestParam List<Long> ids) {
         log.info("delete dish" + ids);
         dishService.deleteBatch(ids);
-        cleanCache("dish_*");
+        cleanCache("*dish_*");
         return Result.success();
     }
 
@@ -108,7 +108,7 @@ public class DishController {
         log.info("update dish");
         dishService.updateWithFlavor(dishDTO);
         //删除redis中的缓存
-        cleanCache("dish_*");
+        cleanCache("*dish_*");
         return Result.success();
     }
 
@@ -123,7 +123,7 @@ public class DishController {
     public Result<String> startOrStop(@PathVariable("status") Integer status, Long id){
         dishService.startOrStop(status,id);
         //删除redis中的缓存
-        cleanCache("dish_*");
+        cleanCache("*dish_*");
         return Result.success();
     }
 
