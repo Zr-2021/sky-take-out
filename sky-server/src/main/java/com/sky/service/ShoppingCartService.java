@@ -22,4 +22,12 @@ public interface ShoppingCartService {
      * @return
      */
     List<ShoppingCart> showShoppingCart();
+
+    /**
+     * 清空购物车
+     * @return
+     */
+    void cleanShoppingCart();
+
+    void sub(ShoppingCartDTO shoppingCartDTO);
 }
