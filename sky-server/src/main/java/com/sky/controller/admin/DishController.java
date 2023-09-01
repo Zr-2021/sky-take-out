@@ -72,10 +72,14 @@ public class DishController {
     public Result<Object> delete(@RequestParam List<Long> ids) {
         log.info("delete dish" + ids);
         dishService.deleteBatch(ids);
-        //删除redis中的缓存
-        Set keys = redisTemplate.keys("dish_");
-        redisTemplate.delete(keys);
+        cleanCache("dish_*");
         return Result.success();
+    }
+
+    private void cleanCache(String pattern) {
+        //删除redis中的缓存
+        Set keys = redisTemplate.keys(pattern);
+        redisTemplate.delete(keys);
     }
 
     /**
@@ -104,8 +108,7 @@ public class DishController {
         log.info("update dish");
         dishService.updateWithFlavor(dishDTO);
         //删除redis中的缓存
-        Set keys = redisTemplate.keys("dish_");
-        redisTemplate.delete(keys);
+        cleanCache("dish_*");
         return Result.success();
     }
 
@@ -120,8 +123,7 @@ public class DishController {
     public Result<String> startOrStop(@PathVariable("status") Integer status, Long id){
         dishService.startOrStop(status,id);
         //删除redis中的缓存
-        Set keys = redisTemplate.keys("dish_");
-        redisTemplate.delete(keys);
+        cleanCache("dish_*");
         return Result.success();
     }
 
