@@ -384,7 +384,7 @@ public class OrderServiceImpl implements OrderService {
         }).collect(Collectors.toList());
 
         // 将购物车对象批量添加到数据库
-//        shoppingCartMapper.insertBatch(shoppingCartList);
+        shoppingCartMapper.insertBatch(shoppingCartList);
     }
 
     /**
