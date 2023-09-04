@@ -1,6 +1,8 @@
 package com.sky.websocket;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
